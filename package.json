@@ -1,0 +1,17 @@
+{
+  "name": "zx-ventures",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "apollo-server-express": "^1.1.2",
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.18.2",
+    "express": "~4.15.5",
+    "graphql": "^0.10.1",
+    "mongoose": "^4.11.14",
+    "nodemon": "^1.12.1"
+  }
+}
