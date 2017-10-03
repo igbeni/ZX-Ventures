@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "test": "mocha --timeout 10000"
   },
   "dependencies": {
     "apollo-server-express": "^1.1.2",
@@ -13,5 +14,10 @@
     "graphql": "^0.10.1",
     "mongoose": "^4.11.14",
     "nodemon": "^1.12.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "mocha": "^2.4.5"
   }
 }
