@@ -1,7 +1,7 @@
 /**
  * Created by iggor on 02/10/17.
  */
-var mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const pdvSchema = mongoose.Schema({
     id: {
@@ -32,4 +32,6 @@ const pdvSchema = mongoose.Schema({
 pdvSchema.index({coverageArea: '2dsphere'});
 pdvSchema.index({address: '2dsphere'});
 
-module.exports = mongoose.model('PDV', pdvSchema);
+const PDV = mongoose.model('PDV', pdvSchema);
+
+export default PDV;

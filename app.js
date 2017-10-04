@@ -1,25 +1,23 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-var apolloServerExpress = require('apollo-server-express');
+import express from "express";
+import bodyParser from "body-parser";
+import mongoose from "mongoose";
+import {graphqlConnect, graphiqlConnect} from "apollo-server-express";
+import executableSchema from "./graphql/schema";
 
-var app = express();
+const app = express();
 
 mongoose.Promise = require('bluebird');
 
 mongoose.connect("mongodb://mongo:27017/zx-ventures");
-// mongoose.connect("mongodb://localhost/zx-ventures");
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
-    // console.log('App connected to mongodb.');
+    console.log('App connected to mongodb.');
 });
 
-var executableSchema = require('./graphql/schema');
-
-app.use('/graphql', bodyParser.json(), apolloServerExpress.graphqlConnect({schema: executableSchema}));
-app.use('/graphiql', apolloServerExpress.graphiqlConnect({
+app.use('/graphql', bodyParser.json(), graphqlConnect({schema: executableSchema}));
+app.use('/graphiql', graphiqlConnect({
     endpointURL: '/graphql'
 }));
 
@@ -27,4 +25,4 @@ app.listen(3000, function () {
     console.log('App listening on port 3000!');
 });
 
-module.exports = app;
+export default app;
