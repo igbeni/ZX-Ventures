@@ -80,7 +80,7 @@ describe('PDV', () => {
             chai.request(app)
                 .post('/graphql?')
                 // .set('content-type', 'application/x-www-form-urlencoded')
-                .send({query: "{ searchPDVs(lng: 0, lat: 0) { id } }"})
+                .send({query: "{ searchPDV(lng: 0, lat: 0) { id } }"})
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('object');
