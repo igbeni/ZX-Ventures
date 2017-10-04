@@ -9,6 +9,7 @@ const app = express();
 mongoose.Promise = require('bluebird');
 
 mongoose.connect("mongodb://mongo:27017/zx-ventures");
+// mongoose.connect("mongodb://localhost/zx-ventures");
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

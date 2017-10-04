@@ -5,10 +5,11 @@
   "scripts": {
     "build": "babel source --presets babel-preset-es2015 --out-dir distribution",
     "start": "nodemon app.js --exec babel-node --presets es2015,stage-2",
-    "test": "mocha --timeout 10000"
+    "test": "mocha  --compilers js:babel-core/register --timeout 10000"
   },
   "dependencies": {
     "apollo-server-express": "^1.1.2",
+    "babel-register": "^6.26.0",
     "bluebird": "^3.5.0",
     "body-parser": "^1.18.2",
     "express": "^4.15.5",
